@@ -46,7 +46,6 @@
 
 | Type d'utilisateur | Description | Rôles et permissions |
 |--------------------|-------------|-----------------------|
-| **Visiteur** | Non inscrit | - Consulter la page d’accueil<br>- Voir des profils publics |
 | **Utilisateur inscrit** | Membre de la plateforme | - Gérer son profil<br>- Publier des offres d’échange<br>- Rechercher des partenaires<br>- Envoyer/recevoir des propositions<br>- Utiliser la messagerie<br>- Noter après un échange |
 | **Admin** | Gestionnaire de la plateforme | - Gérer les utilisateurs<br>- Modérer les offres<br>- Supprimer le contenu abusif<br>- Superviser les évaluations |
 
