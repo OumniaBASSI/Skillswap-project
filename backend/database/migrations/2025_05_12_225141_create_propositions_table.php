@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('propositions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('offreId')->constrained('offres')->onDelete('cascade');
-            $table->foreignId('utilisateurProposeurId')->constrained('utilisateurs')->onDelete('cascade');
+            $table->foreignId('userProposeurId')->constrained('users')->onDelete('cascade');
             $table->string('statut'); 
             $table->timestamps();
         });

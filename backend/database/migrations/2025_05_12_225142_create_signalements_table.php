@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('signalements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('utilisateurId')->constrained('utilisateurs')->onDelete('cascade');
-            $table->foreignId('evalueId')->constrained('utilisateurs')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('evalueId')->constrained('users')->onDelete('cascade');
             $table->string('raison');
             $table->string('type'); 
             $table->timestamps();
