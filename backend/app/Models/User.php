@@ -23,8 +23,9 @@ class User extends Authenticatable
         'username',
         'name',
         'bio',
-        'competences',
+        'competencies', // <-- fix here
         'password',
+        'profile_image'
     ];
 
     /**
