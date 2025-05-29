@@ -1,8 +1,11 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 
 const Profile = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="d-flex">
       <Sidebar />
@@ -29,7 +32,20 @@ const Profile = () => {
               <li>Digital Marketing</li>
             </ul>
           </div>
-          <Button variant="primary" style={{ background: "linear-gradient(90deg, #7c3aed 60%, #a78bfa 100%)", border: "none" }}>Edit Profile</Button>
+          <Button
+            variant="primary"
+            style={{ background: "linear-gradient(90deg, #7c3aed 60%, #a78bfa 100%)", border: "none" }}
+            onClick={() => navigate('/edit-profile')}
+          >
+            Edit Profile
+          </Button>
+          <Button
+            variant="primary"
+            style={{ background: "linear-gradient(90deg, #7c3aed 60%, #a78bfa 100%)", border: "none", marginTop: "10px" }}
+            onClick={() => navigate('/find-partner')}
+          >
+            Find Partner
+          </Button>
         </Card>
       </div>
     </div>

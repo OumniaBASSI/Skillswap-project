@@ -40,6 +40,7 @@ const Messages = () => {
   const [messages, setMessages] = useState([]);
   const [selectedConversation, setSelectedConversation] = useState(null);
   const [inputMessage, setInputMessage] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     // Use mock data for demonstration
@@ -82,6 +83,11 @@ const Messages = () => {
     muted: "#6d28d9",
   };
 
+  // Filter conversations by search term
+  const filteredConversations = conversations.filter((conversation) =>
+    conversation.user_name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="d-flex" style={{ background: COLORS.background, minHeight: "100vh" }}>
       <Sidebar />
@@ -93,9 +99,11 @@ const Messages = () => {
               className="mb-3"
               placeholder="Search a conversation"
               style={{ borderRadius: 12, borderColor: COLORS.secondary }}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <div className="chat-list">
-              {conversations.map((conversation) => (
+              {filteredConversations.map((conversation) => (
                 <div
                   className={`mb-2 p-2 rounded ${selectedConversation === conversation.id ? 'bg-white' : ''}`}
                   key={conversation.id}
