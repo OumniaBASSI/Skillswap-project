@@ -4,14 +4,17 @@ import App from "./App";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import { AuthProvider } from "./contexts/AuthContext";
 
 // Axios defaults for backend connection
-axios.defaults.baseURL = "http://localhost:8000"; // Change if your backend runs elsewhere
-axios.defaults.withCredentials = true; // Needed for Sanctum authentication
+axios.defaults.baseURL = "http://localhost:8000"; 
+axios.defaults.withCredentials = true; 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </React.StrictMode>
 );
 

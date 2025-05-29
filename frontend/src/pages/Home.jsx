@@ -92,6 +92,34 @@ const Home = () => (
     <section id="how-it-works" className="mt-4">
       {/* ...How it works cards... */}
     </section>
+
+    <div className="mt-5">
+      <h2 className="text-center mb-4" style={{ color: "#7c3aed", fontWeight: 700 }}>
+        Showcase of Skills
+      </h2>
+      <Row className="g-4">
+        <Col md={6}>
+          <Card className="shadow-sm border-0">
+            <Card.Body>
+              <Card.Title style={{ color: "#7c3aed" }}>Offering</Card.Title>
+              <Card.Text>
+                JavaScript Tutoring by Emma
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6}>
+          <Card className="shadow-sm border-0">
+            <Card.Body>
+              <Card.Title style={{ color: "#7c3aed" }}>Requesting</Card.Title>
+              <Card.Text>
+                Graphic Design Help by John
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </div>
   </Container>
 );
 

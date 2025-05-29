@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -23,10 +24,26 @@ class User extends Authenticatable
         'username',
         'name',
         'bio',
-        'competencies', // <-- fix here
+        'competencies',
         'password',
         'profile_image'
     ];
+
+    /**
+     * Get the offres for the user.
+     */
+    public function offres(): HasMany
+    {
+        return $this->hasMany(Offre::class);
+    }
+
+    /**
+     * Get the propositions for the user.
+     */
+    public function propositions(): HasMany
+    {
+        return $this->hasMany(Proposition::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
