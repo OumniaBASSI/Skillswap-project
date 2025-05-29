@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Offre;
+use App\Models\Proposition;
 
 class User extends Authenticatable
 {
@@ -29,20 +31,14 @@ class User extends Authenticatable
         'profile_image'
     ];
 
-    /**
-     * Get the offres for the user.
-     */
     public function offres(): HasMany
     {
         return $this->hasMany(Offre::class);
     }
 
-    /**
-     * Get the propositions for the user.
-     */
     public function propositions(): HasMany
     {
-        return $this->hasMany(Proposition::class);
+        return $this->hasMany(\App\Models\Proposition::class);
     }
 
     /**

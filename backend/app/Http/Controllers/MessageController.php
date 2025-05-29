@@ -33,7 +33,6 @@ class MessageController extends Controller
                 'last_message' => 'I can teach you graphic design...',
             ],
         ];
-
         $messages = [
             [
                 'id' => 1,
