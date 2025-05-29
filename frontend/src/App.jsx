@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import FindPartner from "./pages/FindPartner";
 import Messages from "./pages/Messages";
 import Profile from "./pages/Profile";
+import CreateOffer from "./pages/CreateOffer";
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/create-offer" element={<CreateOffer />} />
           <Route path="/find-partner" element={<FindPartner />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/profile" element={<Profile />} />

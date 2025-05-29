@@ -7,8 +7,8 @@ import "./index.css";
 import { AuthProvider } from "./contexts/AuthContext";
 
 // Axios defaults for backend connection
-axios.defaults.baseURL = "http://localhost:8000"; 
-axios.defaults.withCredentials = true; 
+axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -17,4 +17,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </AuthProvider>
   </React.StrictMode>
 );
-
