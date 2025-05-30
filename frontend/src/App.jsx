@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import CreateOffer from "./pages/CreateOffer";
 import EditProfile from "./pages/EditProfile";
 import ActiveExchanges from "./pages/ActiveExchanges";
+import AdminDashboard from "./pages/AdminDashboard"; // <-- Add this import
 import './App.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/active-exchanges" element={<ActiveExchanges />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
       <Footer />
