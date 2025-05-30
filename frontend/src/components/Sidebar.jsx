@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import { FaTachometerAlt, FaUserFriends, FaComments, FaUser } from 'react-icons/fa';
 
 const Sidebar = () => {
   return (
@@ -10,32 +11,31 @@ const Sidebar = () => {
       <Nav className="flex-column">
         <NavLink
           to="/dashboard"
-          className={({ isActive }) => `nav-link mb-2 ${isActive ? 'active fw-bold text-primary' : 'text-dark'}`}
+          className={({ isActive }) => `nav-link mb-2 d-flex align-items-center ${isActive ? 'active fw-bold text-primary' : 'text-dark'}`}
         >
-          📊 Dashboard
+          <FaTachometerAlt className="me-2" /> Dashboard
         </NavLink>
         <NavLink
           to="/find-partner"
-          className={({ isActive }) => `nav-link mb-2 ${isActive ? 'active fw-bold text-primary' : 'text-dark'}`}
+          className={({ isActive }) => `nav-link mb-2 d-flex align-items-center ${isActive ? 'active fw-bold text-primary' : 'text-dark'}`}
         >
-          🤝 Find Partner
+          <FaUserFriends className="me-2" /> Find Partner
         </NavLink>
         <NavLink
           to="/messages"
-          className={({ isActive }) => `nav-link mb-2 ${isActive ? 'active fw-bold text-primary' : 'text-dark'}`}
+          className={({ isActive }) => `nav-link mb-2 d-flex align-items-center ${isActive ? 'active fw-bold text-primary' : 'text-dark'}`}
         >
-          💬 Messages
+          <FaComments className="me-2" /> Messages
         </NavLink>
         <NavLink
           to="/profile"
-          className={({ isActive }) => `nav-link mb-2 ${isActive ? 'active fw-bold text-primary' : 'text-dark'}`}
+          className={({ isActive }) => `nav-link mb-2 d-flex align-items-center ${isActive ? 'active fw-bold text-primary' : 'text-dark'}`}
         >
-          👤 My Profile
+          <FaUser className="me-2" /> My Profile
         </NavLink>
       </Nav>
     </div>
   );
 };
-
 
 export default Sidebar;

@@ -12,8 +12,22 @@ const Profile = () => {
       <div className="p-4 w-100">
         <h2 style={{ color: "#7c3aed" }}>My profile</h2>
         <Card className="p-4 w-75 mx-auto text-center shadow-sm border-0">
-          <div className="fs-1 mb-3">👤</div>
-          <h4 style={{ color: "#7c3aed" }}>User x</h4>
+          {/* Profile image centered at the top */}
+          <div className="d-flex justify-content-center mb-3">
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              alt="Profile"
+              style={{
+                width: 110,
+                height: 110,
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "3px solid #a78bfa",
+                boxShadow: "0 2px 8px rgba(124, 58, 237, 0.10)",
+              }}
+            />
+          </div>
+          <h4 style={{ color: "#7c3aed" }}>oumnia</h4>
           <p className="text-muted"><strong>About Me:</strong><br />
             Web developer specializing in React and TypeScript. Love to learn and share knowledge with others.
           </p>
@@ -38,13 +52,6 @@ const Profile = () => {
             onClick={() => navigate('/edit-profile')}
           >
             Edit Profile
-          </Button>
-          <Button
-            variant="primary"
-            style={{ background: "linear-gradient(90deg, #7c3aed 60%, #a78bfa 100%)", border: "none", marginTop: "10px" }}
-            onClick={() => navigate('/find-partner')}
-          >
-            Find Partner
           </Button>
         </Card>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Card, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, Row, Col, Alert } from 'react-bootstrap';
 import Sidebar from '../components/Sidebar';
 
 const usersData = [
@@ -14,6 +14,7 @@ const FindPartner = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('Category');
   const [users, setUsers] = useState(usersData);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleSearch = () => {
     const filteredUsers = usersData.filter(user => {
@@ -29,12 +30,22 @@ const FindPartner = () => {
     setUsers(usersData);
   };
 
+  const handleSendProposal = () => {
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 2000);
+  };
+
   return (
     <div className="d-flex">
       <Sidebar />
       <div className="p-4 w-100">
         <h2 style={{ color: "#7c3aed" }}>Find Partners</h2>
         <p className="text-muted">Discover people with the skills you need</p>
+        {showAlert && (
+          <Alert variant="success" className="w-75 mx-auto text-center">
+            Proposal sent!
+          </Alert>
+        )}
         <Row className="mb-3">
           <Col>
             <Form.Control
@@ -75,7 +86,11 @@ const FindPartner = () => {
                 <br />
                 <small className="text-muted">Available: {user.availability}</small>
               </div>
-              <Button variant="primary" style={{ backgroundColor: "#7c3aed", borderColor: "#7c3aed" }}>
+              <Button
+                variant="primary"
+                style={{ backgroundColor: "#7c3aed", borderColor: "#7c3aed" }}
+                onClick={handleSendProposal}
+              >
                 Send Proposal
               </Button>
             </Card.Body>

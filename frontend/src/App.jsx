@@ -12,6 +12,8 @@ import FindPartner from "./pages/FindPartner";
 import Messages from "./pages/Messages";
 import Profile from "./pages/Profile";
 import CreateOffer from "./pages/CreateOffer";
+import EditProfile from "./pages/EditProfile";
+import ActiveExchanges from "./pages/ActiveExchanges";
 import './App.css';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route path="/find-partner" element={<FindPartner />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/active-exchanges" element={<ActiveExchanges />} />
         </Routes>
       </main>
       <Footer />

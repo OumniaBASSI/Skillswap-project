@@ -155,6 +155,8 @@ const Dashboard = () => {
                   </Badge>
                 </h2>
                 <Button
+                  as={Link}
+                  to="/active-exchanges"
                   variant="outline-primary"
                   style={{
                     color: COLORS.primary,
