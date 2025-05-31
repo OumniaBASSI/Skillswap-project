@@ -53,7 +53,7 @@ const Dashboard = () => {
             boxShadow: "0 4px 24px rgba(124, 58, 237, 0.08)",
           }}
         >
-          <h2 style={{ color: COLORS.primary, fontWeight: 700, marginBottom: 8 }}>Welcome, oumnia!</h2>
+          <h2 style={{ color: COLORS.primary, fontWeight: 700, marginBottom: 8 }}>Welcome !</h2>
           <p className="text-muted" style={{ color: COLORS.text, fontSize: 18 }}>
             Here’s what’s happening with your skill exchanges
           </p>

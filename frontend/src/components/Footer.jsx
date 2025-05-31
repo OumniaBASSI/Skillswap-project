@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => (
   <footer
@@ -94,8 +95,9 @@ const Footer = () => (
                 marginRight: 12,
                 fontSize: 22,
               }}
+              aria-label="Facebook"
             >
-              <i className="bi bi-facebook"></i>
+              <FaFacebookF />
             </a>
             <a
               href="#"
@@ -104,14 +106,16 @@ const Footer = () => (
                 marginRight: 12,
                 fontSize: 22,
               }}
+              aria-label="Twitter"
             >
-              <i className="bi bi-twitter"></i>
+              <FaTwitter />
             </a>
             <a
               href="#"
               style={{ color: "#7c3aed", fontSize: 22 }}
+              aria-label="Instagram"
             >
-              <i className="bi bi-instagram"></i>
+              <FaInstagram />
             </a>
           </div>
         </Col>

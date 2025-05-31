@@ -12,7 +12,7 @@ const CreateOffer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Pass state to dashboard for alert notification
+    // Redirect to dashboard with alert state
     navigate('/dashboard', { state: { showAlert: true, alertMessage: 'Offer created successfully!' } });
   };
 

@@ -15,7 +15,7 @@ const Profile = () => {
           {/* Profile image centered at the top */}
           <div className="d-flex justify-content-center mb-3">
             <img
-              src="https://randomuser.me/api/portraits/women/44.jpg"
+              src="https://ui-avatars.com/api/?name=Profile&background=7c3aed&color=fff&rounded=true&size=110"
               alt="Profile"
               style={{
                 width: 110,
@@ -27,7 +27,7 @@ const Profile = () => {
               }}
             />
           </div>
-          <h4 style={{ color: "#7c3aed" }}>oumnia</h4>
+          <h4 style={{ color: "#7c3aed" }}></h4>
           <p className="text-muted"><strong>About Me:</strong><br />
             Web developer specializing in React and TypeScript. Love to learn and share knowledge with others.
           </p>

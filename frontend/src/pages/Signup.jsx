@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Container, Form, Button, Card, Row, Col, Alert } from "react-bootstrap";
-import axios from "axios";
+// import axios from "axios"; // Commented: backend
 
 const SignUp = () => {
-  const { login } = useAuth();
+  // const { login } = useAuth(); // Commented: backend
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,66 +13,35 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setError("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
-  if (password !== confirmPassword) {
-    setError("Passwords do not match");
-    return;
-  }
-
-  const formData = {
-    name,
-    email,
-    password,
-    password_confirmation: confirmPassword,
-  };
-
-  console.log("Form Data:", formData);
-
-  try {
-    // Get CSRF token
-    await axios.get("/sanctum/csrf-cookie");
-
-    // Register user
-    const response = await axios.post("/api/register", formData);
-
-    console.log("Registration Response:", response);
-
-    // Log in user
-    await login(email, password);
-    navigate("/");
-  } catch (error) {
-    console.error("Signup Error:", error);
-    let errorMessage = "Signup failed";
-
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      console.error("Response Data:", error.response.data);
-      console.error("Response Status:", error.response.status);
-      console.error("Response Headers:", error.response.headers);
-
-      if (error.response.data.errors) {
-        // Laravel validation errors
-        errorMessage = Object.values(error.response.data.errors)[0][0] || errorMessage;
-      } else {
-        errorMessage = error.response.data.message || errorMessage;
-      }
-    } else if (error.request) {
-      // The request was made but no response was received
-      console.error("Request:", error.request);
-      errorMessage = "No response from server";
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.error("Error Message:", error.message);
-      errorMessage = error.message;
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
     }
 
-    setError(errorMessage);
-  }
-};
+    // const formData = {
+    //   name,
+    //   email,
+    //   password,
+    //   password_confirmation: confirmPassword,
+    // };
+
+    // console.log("Form Data:", formData);
+
+    try {
+      // await axios.get("/sanctum/csrf-cookie"); // Commented: backend
+      // const response = await axios.post("/api/register", formData); // Commented: backend
+      // console.log("Registration Response:", response); // Commented: backend
+      // await login(email, password); // Commented: backend
+      navigate("/login"); // Redirect to sign in page
+    } catch (error) {
+      // Commented: backend error handling
+      setError("Signup failed");
+    }
+  };
 
   return (
     <Container className="py-5 d-flex align-items-center justify-content-center" style={{ minHeight: '80vh' }}>

@@ -8,15 +8,34 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Pages where only Home, About us, and Sign out should show
+  const hideAuthBtnsPages = [
+    "/dashboard",
+    "/messages",
+    "/find-partner",
+    "/profile"
+  ];
+
+  const isHideAuthBtnsPage = hideAuthBtnsPages.includes(location.pathname);
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
+
   const handleLogout = async () => {
-    await logout();
-    navigate("/login");
+    await logout?.();
+    navigate("/");
   };
 
-  const showAuthButtons = location.pathname === "/" || location.pathname === "/about-us";
-
   return (
-    <Navbar bg="light" expand="lg" className="shadow-sm" style={{ borderBottom: "1px solid #ede9fe" }}>
+    <Navbar
+      bg="light"
+      expand="lg"
+      className="shadow-sm"
+      style={{
+        borderBottom: "1px solid #ede9fe",
+        position: "sticky",
+        top: 0,
+        zIndex: 1050,
+      }}
+    >
       <Container>
         <Navbar.Brand as={Link} to="/" className="fw-bold" style={{ fontSize: 28 }}>
           <span style={{ color: "#7c3aed" }}>Skill</span>
@@ -31,7 +50,8 @@ const Header = () => {
             <Nav.Link as={Link} to="/about-us" style={{ color: "#7c3aed", fontWeight: 500 }}>
               About us
             </Nav.Link>
-            {user ? (
+            {/* Sign out button always visible on dashboard, messages, find-partner, profile */}
+            {isHideAuthBtnsPage && (
               <Button
                 variant="outline-secondary"
                 size="sm"
@@ -44,58 +64,38 @@ const Header = () => {
                 }}
                 onClick={handleLogout}
               >
-                Logout
+                Sign out
               </Button>
-            ) : (
+            )}
+            {/* Show sign in/up only if not on auth pages or the above pages */}
+            {!isAuthPage && !isHideAuthBtnsPage && (
               <>
-                {showAuthButtons && (
-                  <>
-                    <Nav.Link as={Link} to="/login" className="d-flex align-items-center">
-                      <Button
-                        variant="outline-secondary"
-                        size="sm"
-                        className="me-2"
-                        style={{
-                          borderColor: "#a78bfa",
-                          color: "#7c3aed",
-                          fontWeight: 500,
-                          background: "white",
-                        }}
-                      >
-                        Sign in
-                      </Button>
-                    </Nav.Link>
-                    <Nav.Link as={Link} to="/signup" className="d-flex align-items-center">
-                      <Button
-                        size="sm"
-                        style={{
-                          background: "linear-gradient(90deg, #7c3aed 60%, #a78bfa 100%)",
-                          border: "none",
-                          fontWeight: 500,
-                          color: "#fff",
-                        }}
-                      >
-                        Sign up
-                      </Button>
-                    </Nav.Link>
-                  </>
-                )}
-                 {!showAuthButtons && (
+                <Nav.Link as={Link} to="/login" className="d-flex align-items-center">
                   <Button
-                    variant="outline-secondary"
                     size="sm"
-                    className="ms-2"
                     style={{
                       borderColor: "#a78bfa",
                       color: "#7c3aed",
                       fontWeight: 500,
                       background: "white",
                     }}
-                    onClick={() => navigate("/")}
                   >
-                    Sign Out
+                    Sign in
                   </Button>
-                )}
+                </Nav.Link>
+                <Nav.Link as={Link} to="/signup" className="d-flex align-items-center">
+                  <Button
+                    size="sm"
+                    style={{
+                      background: "linear-gradient(90deg, #7c3aed 60%, #a78bfa 100%)",
+                      border: "none",
+                      fontWeight: 500,
+                      color: "#fff",
+                    }}
+                  >
+                    Sign up
+                  </Button>
+                </Nav.Link>
               </>
             )}
           </Nav>

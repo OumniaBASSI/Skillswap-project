@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Container, Form, Button, Card, Row, Col, Alert } from "react-bootstrap";
 
 const Login = () => {
-  const { login } = useAuth();
+  // const { login } = useAuth(); // Commented: backend login
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,9 +14,11 @@ const Login = () => {
     e.preventDefault();
     setError("");
     try {
-      await login(email, password);
-      navigate("/"); // Redirect on success
+      // await login(email, password); // Commented: backend login
+      // console.log("Login success"); // Commented: backend login
+      navigate("/dashboard"); // Redirect to dashboard
     } catch (err) {
+      // console.log("Login error", err); // Commented: backend login
       setError(err.message || "Login failed");
     }
   };
